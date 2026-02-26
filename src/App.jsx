@@ -1,5 +1,5 @@
 
-import { useState ,useEffect} from 'react'
+import { useState, useEffect } from 'react'
 import './styles/main.scss'
 import Header from './components/Header'
 import Hero from './sections/Hero'
@@ -10,33 +10,44 @@ import SkinCare from './sections/SkinCare'
 import Instargram from './sections/Instargram'
 import TopBanner from './components/TopBanner'
 import FixedTopBtn from './components/FixedTopBtn'
+import AOS from 'aos';
+import 'aos/dist/aos.css';
 function App() {
 
-  const [topBanner, setTopBanner]=useState('')
-  const [isScrolled, setIsScrolled]=useState(false)
+
+  const [topBanner, setTopBanner] = useState('')
+  const [isScrolled, setIsScrolled] = useState(false)
+
+  useEffect(() => {
+
+    AOS.init({
+      duration:400,
+      easing:'ease'
+    });
+  },[])
 
 
-  useEffect(()=>{
+  useEffect(() => {
 
-    const handleScroll =()=>{
-      const scrollTop=window.scrollY
+    const handleScroll = () => {
+      const scrollTop = window.scrollY
 
-      setIsScrolled(scrollTop>200)
+      setIsScrolled(scrollTop > 200)
 
       // console.log(scrollTop)
     }
 
-    window.addEventListener('scroll',handleScroll)
+    window.addEventListener('scroll', handleScroll)
 
-  },[])
+  }, [])
 
-  const upTopBanner =()=>{
+  const upTopBanner = () => {
     setTopBanner('up')
   }
   return (
-    <div className={`app-container ${topBanner} ${isScrolled? 'scrolled':''} `}>
-      <FixedTopBtn/>
-      <TopBanner  onClick={upTopBanner}/>
+    <div className={`app-container ${topBanner} ${isScrolled ? 'scrolled' : ''} `}>
+      <FixedTopBtn />
+      <TopBanner onClick={upTopBanner} />
       <Header />
       <main>
         <section id="hero" className='section'>
