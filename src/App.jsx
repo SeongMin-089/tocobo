@@ -32,6 +32,12 @@ function App() {
     });
   }, [])
 
+  useEffect(()=>{
+
+    document.body.style.overflow=mNavOpen?'hidden':''
+
+  },[mNavOpen])
+
 
   useEffect(() => {
 
