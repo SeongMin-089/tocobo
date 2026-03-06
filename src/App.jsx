@@ -7,7 +7,7 @@ import Footer from './components/Footer'
 import Follow from './sections/Follow'
 import Collection from './sections/Collection'
 import SkinCare from './sections/SkinCare'
-import Instargram from './sections/Instargram'
+import Instargram from './sections/instargram'
 import TopBanner from './components/TopBanner'
 import FixedTopBtn from './components/FixedTopBtn'
 import AOS from 'aos';
